@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>For Hana</title>
+
+<meta name="theme-color" content="#FFF4F7">
+<meta name="description" content="Happy first month.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="For Hana">
+<meta property="og:description" content="Happy first month, nonty.">
+<!-- Optional: after your page is live, add a preview image and put its full URL here
+<meta property="og:image" content="https://YOUR-USERNAME.github.io/REPO-NAME/preview.png">
+-->
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8C%B8%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;1,300;1,500&family=Lora:ital,wght@0,400;0,500;1,400&family=Parisienne&display=swap">
+
+<style>
+  :root{
+    --paper:      #FFF4F7;
+    --paper-deep: #F9DDE6;
+    --card:       #FFFBFC;
+    --ink:        #4A2231;
+    --ink-soft:   #8A5A6C;
+    --rose:       #D2628E;
+    --rose-deep:  #A83E67;
+    --blush:      #F6C3D6;
+    --gold:       #C79A3E;
+    --leaf:       #A3B99B;
+    --line:       rgba(168,62,103,.16);
+
+    color-scheme: light;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  *{ box-sizing: border-box; }
+
+  img{ max-width: 100%; }
+
+  body{
+    margin: 0;
+    padding-inline: 20px;
+    padding-block: 0 64px;
+    background:
+      radial-gradient(760px 520px at 12% -6%,  rgba(246,195,214,.75), transparent 62%),
+      radial-gradient(680px 480px at 92% 8%,   rgba(255,214,228,.65), transparent 60%),
+      radial-gradient(900px 700px at 50% 108%, rgba(249,221,230,.85), transparent 66%),
+      var(--paper);
+    background-attachment: fixed;
+    color: var(--ink);
+    font-family: "Lora", Georgia, "Times New Roman", serif;
+    font-size: 17px;
+    line-height: 1.85;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  #petals{
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .sheet{
+    position: relative;
+    z-index: 1;
+    max-width: 660px;
+    margin: 0 auto;
+  }
+
+  /* ---------- hero ---------- */
+
+  .hero{
+    padding-block: 34px 8px;
+    text-align: center;
+  }
+
+  .bouquet{
+    display: block;
+    width: 100%;
+    max-width: 440px;
+    height: auto;
+    margin: 0 auto 6px;
+  }
+
+  .eyebrow{
+    font-family: "Lora", Georgia, serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .34em;
+    text-transform: uppercase;
+    color: var(--rose-deep);
+    opacity: .78;
+    margin: 0 0 10px;
+  }
+
+  h1{
+    font-family: "Cormorant Garamond", Garamond, Georgia, serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(56px, 17vw, 104px);
+    line-height: .94;
+    letter-spacing: -.01em;
+    color: var(--rose-deep);
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  .dedication{
+    font-family: "Cormorant Garamond", Garamond, Georgia, serif;
+    font-size: clamp(19px, 4.6vw, 23px);
+    font-weight: 300;
+    color: var(--ink-soft);
+    margin: 14px 0 0;
+  }
+
+  /* ---------- rule ornament ---------- */
+
+  .ornament{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-block: 30px;
+  }
+  .ornament::before,
+  .ornament::after{
+    content: "";
+    height: 1px;
+    flex: 1 1 auto;
+    max-width: 160px;
+    background: linear-gradient(to right, transparent, var(--line), transparent);
+  }
+  .ornament svg{ width: 30px; height: 30px; display: block; }
+
+  /* ---------- letter ---------- */
+
+  .letter{
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    box-shadow:
+      0 1px 0 rgba(255,255,255,.9) inset,
+      0 18px 44px -28px rgba(120,40,70,.45);
+    padding: clamp(26px, 6vw, 52px);
+  }
+
+  .letter p{
+    margin: 0 0 1.35em;
+    max-width: 58ch;
+  }
+  .letter p:last-of-type{ margin-bottom: 0; }
+
+  .opener{
+    font-family: "Cormorant Garamond", Garamond, Georgia, serif;
+    font-size: clamp(27px, 6.4vw, 34px);
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.3;
+    color: var(--rose-deep);
+    margin-bottom: .7em !important;
+  }
+
+  .letter em{
+    font-style: italic;
+    color: var(--rose-deep);
+  }
+
+  .closing{
+    font-family: "Cormorant Garamond", Garamond, Georgia, serif;
+    font-size: clamp(24px, 5.4vw, 30px);
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.35;
+    color: var(--rose-deep);
+    margin-top: 1.1em !important;
+  }
+
+  .sign{
+    margin-top: 34px;
+    padding-top: 26px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  .sign .who{
+    font-family: "Parisienne", "Brush Script MT", cursive;
+    font-size: clamp(34px, 8.5vw, 46px);
+    line-height: 1;
+    color: var(--rose);
+  }
+  .sign .stamp{
+    font-size: 10px;
+    letter-spacing: .26em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    opacity: .7;
+    text-align: right;
+    line-height: 2;
+  }
+
+  /* ---------- song ---------- */
+
+  .song{
+    margin-top: 26px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    padding: 20px 22px;
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    background: linear-gradient(135deg, rgba(246,195,214,.34), rgba(255,251,252,.9));
+    color: inherit;
+    text-decoration: none;
+    transition: transform .3s ease, box-shadow .3s ease;
+  }
+  .song:hover,
+  .song:focus-visible{
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px -20px rgba(120,40,70,.55);
+  }
+  .song:focus-visible{ outline: 2px solid var(--rose); outline-offset: 3px; }
+
+  .vinyl{ flex: 0 0 auto; width: 54px; height: 54px; }
+  .vinyl .disc{ transform-origin: 27px 27px; animation: spin 9s linear infinite; }
+
+  @keyframes spin{ to{ transform: rotate(360deg); } }
+
+  .song .meta{ flex: 1 1 190px; min-width: 0; }
+  .song .label{
+    font-size: 10px;
+    letter-spacing: .26em;
+    text-transform: uppercase;
+    color: var(--rose-deep);
+    opacity: .8;
+    display: block;
+    margin-bottom: 3px;
+  }
+  .song .track{
+    font-family: "Cormorant Garamond", Garamond, Georgia, serif;
+    font-size: 25px;
+    font-style: italic;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.2;
+    display: block;
+  }
+  .song .artist{
+    font-size: 14px;
+    color: var(--ink-soft);
+    display: block;
+  }
+  .song .go{
+    flex: 0 0 auto;
+    font-size: 10px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--rose-deep);
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 3px;
+  }
+
+  /* ---------- footer ---------- */
+
+  .moon{
+    text-align: center;
+    margin-top: 40px;
+    font-family: "Cormorant Garamond", Garamond, Georgia, serif;
+    font-style: italic;
+    font-size: 19px;
+    color: var(--ink-soft);
+  }
+  .moon svg{ display: block; width: 34px; height: 34px; margin: 0 auto 10px; }
+
+  @media (prefers-reduced-motion: reduce){
+    .vinyl .disc{ animation: none; }
+    .song{ transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+  <defs>
+    <radialGradient id="petalFill" cx="50%" cy="98%" r="112%">
+      <stop offset="0%"   stop-color="#D64E87"/>
+      <stop offset="22%"  stop-color="#EE7FAA"/>
+      <stop offset="58%"  stop-color="#F8AECA"/>
+      <stop offset="100%" stop-color="#FDE7EE"/>
+    </radialGradient>
+
+    <g id="petal">
+      <path d="M0,-5 C13,-27 18,-58 4,-89 C1.6,-94 -1.6,-94 -4,-89 C-18,-58 -13,-27 0,-5 Z"
+            fill="url(#petalFill)" stroke="#E68CB2" stroke-width=".7"/>
+      <path d="M0,-9 L0,-84" fill="none" stroke="#FFFFFF" stroke-opacity=".55" stroke-width="1.4"/>
+      <g fill="#C2406F" fill-opacity=".45">
+        <ellipse cx="3.6" cy="-20" rx="1.5" ry="2.2"/>
+        <ellipse cx="-3.6" cy="-26" rx="1.4" ry="2"/>
+        <ellipse cx="4.2" cy="-33" rx="1.3" ry="1.9"/>
+        <ellipse cx="-3" cy="-40" rx="1.1" ry="1.6"/>
+        <ellipse cx="0" cy="-15" rx="1.3" ry="1.9"/>
+      </g>
+    </g>
+
+    <g id="stamen">
+      <path d="M0,-6 Q9,-36 20,-55" fill="none" stroke="#DFC07C" stroke-width="1.6" stroke-linecap="round"/>
+      <ellipse cx="21.5" cy="-57.5" rx="3" ry="6.4" fill="#B8863B" transform="rotate(38 21.5 -57.5)"/>
+    </g>
+
+    <symbol id="lily" viewBox="-110 -110 220 220">
+      <g>
+        <use href="#petal" transform="rotate(0)"/>
+        <use href="#petal" transform="rotate(60)"/>
+        <use href="#petal" transform="rotate(120)"/>
+        <use href="#petal" transform="rotate(180)"/>
+        <use href="#petal" transform="rotate(240)"/>
+        <use href="#petal" transform="rotate(300)"/>
+      </g>
+      <g>
+        <use href="#stamen" transform="rotate(-34)"/>
+        <use href="#stamen" transform="rotate(-20)"/>
+        <use href="#stamen" transform="rotate(-7)"/>
+        <use href="#stamen" transform="rotate(7)"/>
+        <use href="#stamen" transform="rotate(20)"/>
+        <use href="#stamen" transform="rotate(34)"/>
+      </g>
+      <path d="M0,-4 Q2,-40 1,-68" fill="none" stroke="#E3AE5C" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="1" cy="-70" r="4.4" fill="#CE9440"/>
+      <circle cx="0" cy="0" r="6" fill="#F6BC5E" fill-opacity=".85"/>
+    </symbol>
+  </defs>
+</svg>
+
+<canvas id="petals" aria-hidden="true"></canvas>
+
+<main class="sheet">
+
+  <header class="hero">
+    <svg class="bouquet" viewBox="0 0 600 300" role="img" aria-label="A bouquet of pink lilies">
+      <g fill="none" stroke="#9FB79A" stroke-width="3.4" stroke-linecap="round">
+        <path d="M300,292 C300,232 300,198 300,150"/>
+        <path d="M300,292 C268,240 208,214 152,182"/>
+        <path d="M300,292 C336,244 396,218 452,188"/>
+        <path d="M300,292 C284,248 246,228 214,250"/>
+      </g>
+      <g fill="#A8BFA0">
+        <path d="M262,244 C238,232 214,236 200,250 C224,258 250,256 262,244 Z"/>
+        <path d="M344,250 C368,236 394,240 408,254 C384,262 356,262 344,250 Z"/>
+        <path d="M300,232 C286,210 288,186 300,172 C312,186 314,210 300,232 Z" fill="#9FB79A"/>
+      </g>
+
+      <g transform="translate(152,182) rotate(-24)">
+        <use href="#lily" x="-70" y="-70" width="140" height="140"/>
+      </g>
+      <g transform="translate(452,188) rotate(22)">
+        <use href="#lily" x="-66" y="-66" width="132" height="132"/>
+      </g>
+      <g transform="translate(214,250) rotate(-8)">
+        <use href="#lily" x="-42" y="-42" width="84" height="84" opacity=".88"/>
+      </g>
+      <g transform="translate(300,132) rotate(4)">
+        <use href="#lily" x="-98" y="-98" width="196" height="196"/>
+      </g>
+    </svg>
+
+    <p class="eyebrow">One month &middot; 21 September 2026</p>
+    <h1>For Hana</h1>
+    <p class="dedication">Happy first month, nonty.</p>
+  </header>
+
+  <div class="ornament" aria-hidden="true">
+    <svg viewBox="-110 -110 220 220"><use href="#lily" x="-110" y="-110" width="220" height="220"/></svg>
+  </div>
+
+  <article class="letter">
+
+    <p class="opener">It&rsquo;s officially a month.</p>
+
+    <p>I wish I could be standing in front of you today instead of typing this. Since I can&rsquo;t, I had to do <em>something</em> &mdash; so I&rsquo;m writing.</p>
+
+    <p>I don&rsquo;t have one specific thing to say. It&rsquo;s just that you made this month so much lighter for me. I haven&rsquo;t been okay for a while now, and you knew that, and you pushed me anyway. You made me better. Being loved by you is the best feeling I have ever known, and I honestly can&rsquo;t imagine how this month would have passed without you in it.</p>
+
+    <p>I hope I&rsquo;m living up to what you expect of me. I&rsquo;ve tried my everything to be better for you, and I&rsquo;m going to keep trying.</p>
+
+    <p>I know you&rsquo;re the one. I don&rsquo;t just think it &mdash; I believe it. What I feel for you can&rsquo;t be put into words; it&rsquo;s out of this world. You are the prettiest, the hottest, the kindest girl I have ever met, and you deserve everything this world has to give. We&rsquo;re going to have a beautiful life together.</p>
+
+    <p>I have never been this attached to anyone. I think about you constantly. I&rsquo;ve come to lean on you more than I ever have on anyone, and I trust you with my whole heart &mdash; it&rsquo;s amazing to be with a person like you. I&rsquo;m so lucky to have you by my side.</p>
+
+    <p>I fell for you fast, and I fell hard, and I&rsquo;m holding on to you, ya Hana. You&rsquo;re my goal, my dream, my forever &mdash; and that isn&rsquo;t an option, it&rsquo;s just a fact. You are my wife. I hope you can feel even half of what I feel towards you.</p>
+
+    <p>I&rsquo;m grateful for you, and for everything you do for me. I miss you, and I want to see you so much more, because the days I spent with you were the best days of my life.</p>
+
+    <p>I mean every single word of this. And please, always feel free to tell me if anything ever bothers you &mdash; I will change it, every time.</p>
+
+    <p class="closing">I love you to the moon and back. I&rsquo;m obsessed with you, and I&rsquo;m ready to spend the rest of my life with you.</p>
+
+    <div class="sign">
+      <span class="who">from your baby</span>
+      <span class="stamp">Written for you<br>Mansoura &rarr; you</span>
+    </div>
+  </article>
+
+  <a class="song" href="https://open.spotify.com/track/6GGtHZgBycCgGBUhZo81xe?si=7d86feb33b894afc" target="_blank" rel="noopener">
+    <svg class="vinyl" viewBox="0 0 54 54" aria-hidden="true">
+      <g class="disc">
+        <circle cx="27" cy="27" r="25" fill="#4A2231"/>
+        <g fill="none" stroke="#8A5A6C" stroke-opacity=".55">
+          <circle cx="27" cy="27" r="20"/>
+          <circle cx="27" cy="27" r="16"/>
+          <circle cx="27" cy="27" r="12.5"/>
+        </g>
+        <circle cx="27" cy="27" r="8.5" fill="#D2628E"/>
+        <circle cx="27" cy="27" r="2" fill="#FFF4F7"/>
+      </g>
+    </svg>
+    <span class="meta">
+      <span class="label">Play this while you read</span>
+      <span class="track">Say Yes To Heaven</span>
+      <span class="artist">Lana Del Rey</span>
+    </span>
+    <span class="go">Open &rarr;</span>
+  </a>
+
+  <p class="moon">
+    <svg viewBox="0 0 40 40" aria-hidden="true">
+      <path d="M26.5,4 A17,17 0 1,0 36,23.5 A13.5,13.5 0 1,1 26.5,4 Z" fill="#E7B84F" fill-opacity=".85"/>
+      <g fill="#D2628E" fill-opacity=".8">
+        <circle cx="8" cy="8" r="1.5"/>
+        <circle cx="34" cy="10" r="1.1"/>
+        <circle cx="5" cy="26" r="1"/>
+      </g>
+    </svg>
+    to the moon and back
+  </p>
+
+</main>
+
+<script>
+(function(){
+  var canvas = document.getElementById('petals');
+  var ctx = canvas.getContext('2d');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var petals = [];
+  var dpr = Math.min(window.devicePixelRatio || 1, 2);
+  var w = 0, h = 0;
+
+  var TINTS = ['#F6C3D6', '#F49CBE', '#FBD9E4', '#EE7FAA', '#FDE7EE'];
+
+  function resize(){
+    w = canvas.clientWidth;
+    h = canvas.clientHeight;
+    canvas.width  = Math.floor(w * dpr);
+    canvas.height = Math.floor(h * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  function make(seeded){
+    return {
+      x: Math.random() * w,
+      y: seeded ? Math.random() * h : -30 - Math.random() * 120,
+      s: 6 + Math.random() * 9,
+      vy: 0.22 + Math.random() * 0.45,
+      drift: 0.5 + Math.random() * 1.1,
+      phase: Math.random() * Math.PI * 2,
+      spin: (Math.random() - 0.5) * 0.012,
+      rot: Math.random() * Math.PI * 2,
+      alpha: 0.35 + Math.random() * 0.4,
+      tint: TINTS[(Math.random() * TINTS.length) | 0]
+    };
+  }
+
+  function seed(){
+    var count = Math.max(10, Math.min(26, Math.round(w / 42)));
+    petals = [];
+    for (var i = 0; i < count; i++) petals.push(make(true));
+  }
+
+  function drawPetal(p){
+    ctx.save();
+    ctx.translate(p.x, p.y);
+    ctx.rotate(p.rot);
+    ctx.globalAlpha = p.alpha;
+    ctx.fillStyle = p.tint;
+    ctx.beginPath();
+    ctx.moveTo(0, -p.s);
+    ctx.bezierCurveTo(p.s * 0.85, -p.s * 0.45, p.s * 0.7, p.s * 0.6, 0, p.s);
+    ctx.bezierCurveTo(-p.s * 0.7, p.s * 0.6, -p.s * 0.85, -p.s * 0.45, 0, -p.s);
+    ctx.fill();
+    ctx.restore();
+  }
+
+  function tick(t){
+    ctx.clearRect(0, 0, w, h);
+    for (var i = 0; i < petals.length; i++){
+      var p = petals[i];
+      p.y += p.vy;
+      p.x += Math.sin(t / 1400 + p.phase) * p.drift * 0.5;
+      p.rot += p.spin;
+      if (p.y - p.s > h) petals[i] = make(false);
+      drawPetal(p);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  function still(){
+    ctx.clearRect(0, 0, w, h);
+    for (var i = 0; i < petals.length; i++) drawPetal(petals[i]);
+  }
+
+  resize();
+  seed();
+  if (reduce){ still(); } else { requestAnimationFrame(tick); }
+
+  window.addEventListener('resize', function(){
+    resize();
+    seed();
+    if (reduce) still();
+  });
+})();
+</script>
+
+</body>
+</html>
